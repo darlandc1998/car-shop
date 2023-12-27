@@ -43,3 +43,17 @@ jobs:
           name: Package
           path: staging
 
+build-docker-image:
+  name: Publish to Docker hub
+  runs-on: ubuntu-latest
+  needs: [build_and_test]
+
+  steps:
+    - uses: actions/checkout@v2
+    - name: Login to Docker hub
+      run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --
+    - name: Build Container image
+      run: docker build -t darlandc1998/car-shop:latest .
+    - name: Publish Docker image
+      run: docker push darlandc1998/car-shop:latest
+
