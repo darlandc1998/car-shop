@@ -14,6 +14,7 @@ public class CarShopRuleException extends RuntimeException {
     public static final String PASSWORDS_DONT_MATCH = "passwords_dont_match";
     public static final String USERNAME_ALREADY_USED = "username_already_used";
     public static final String EMAIL_ALREADY_USED = "email_already_used";
+    public static final String USER_NOT_FOUND = "user_not_found";
 
     public CarShopRuleException(final String message) {
         super(message);

@@ -1,5 +1,8 @@
 package com.carshop.app.modules.users.services.impl;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,20 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(final IUserRepository userRepository, final PasswordEncoder encoder) {
         this.userRepository = userRepository;
         this.encoder = encoder;
+    }
+
+    @Override
+    public List<User> listAll(final int customerId) throws Exception {
+        return this.userRepository.findAllByCustomerId(customerId);
+    }
+
+    @Override
+    public User findById(int customerId, int userId) throws Exception {
+        final Optional<User> user = this.userRepository.findByCustomerIdAndId(customerId, userId);
+        if (!user.isPresent()) {
+            throw new CarShopRuleException(CarShopRuleException.USER_NOT_FOUND);
+        }
+        return user.get();
     }
 
     @Override

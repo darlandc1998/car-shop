@@ -1,6 +1,8 @@
 package com.carshop.app.modules.users.controllers.impl;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,26 @@ public class UserControllerImpl implements UserController {
     @Autowired
     public UserControllerImpl(final UserService userService) {
         this.userService = userService;
+    }
+
+    @Override
+    public HttpResponse listAll(int customerId) {
+        try {
+            final List<User> users = this.userService.listAll(customerId);
+            return HttpHandle.success(users.stream().map(user -> mountUserDTOOf(user)).collect(Collectors.toList()));
+        } catch (Exception e) {
+            return HttpHandle.badRequest(e.getMessage());
+        }
+    }
+
+    @Override
+    public HttpResponse findById(int customerId, int userId) {
+        try {
+            final User user = this.userService.findById(customerId, userId);
+            return HttpHandle.success(mountUserDTOOf(user));
+        } catch (Exception e) {
+            return HttpHandle.badRequest(e.getMessage());
+        }
     }
 
     @Override
@@ -55,6 +77,8 @@ public class UserControllerImpl implements UserController {
         userDTO.setName(user.getName());
         userDTO.setUsername(user.getUsername());
         userDTO.setEmail(user.getEmail());
+        userDTO.setProfileId(user.getProfile().getId());
+        userDTO.setProfileName(user.getProfile().getName());
         return userDTO;
     }
 
