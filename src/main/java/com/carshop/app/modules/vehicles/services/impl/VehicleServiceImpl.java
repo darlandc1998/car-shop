@@ -1,12 +1,10 @@
 package com.carshop.app.modules.vehicles.services.impl;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.carshop.app.exceptions.CarShopRuleException;
 import com.carshop.app.modules.vehicles.entities.Vehicle;
 import com.carshop.app.modules.vehicles.repositories.IVehicleRepository;
 import com.carshop.app.modules.vehicles.services.VehicleService;
@@ -27,23 +25,18 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public List<Vehicle> findAllByCustomerId(final int customerId) throws Exception {
-        return this.vehicleRepository.findAllByCustomerId(customerId);
+    public Page<Vehicle> findAllByCustomerId(final int customerId, final String search, final Pageable pageable) throws Exception {
+        return this.vehicleRepository.findAllByCustomerId(customerId, search, pageable);
     }
 
     @Override
     public Vehicle findByCustomerIdAndVehicleId(final int customerId, final String vehicleId) throws Exception {
-        final Optional<Vehicle> vehicle = this.vehicleRepository.findByCustomerIdAndId(customerId, vehicleId);
-        if (!vehicle.isPresent()) {
-            throw new CarShopRuleException(CarShopRuleException.VEHICLE_NOT_FOUND);
-        }
-        return vehicle.get();
+        return this.vehicleRepository.findByCustomerIdAndId(customerId, vehicleId);
     }
 
     @Override
     public Vehicle delete(Vehicle vehicle) throws Exception {
-        this.vehicleRepository.delete(vehicle);
-        return vehicle;
+        return this.vehicleRepository.delete(vehicle);
     }
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.carshop.app.http.HttpResponse;
 import com.carshop.app.http.handles.HttpHandle;
+import com.carshop.app.modules.profiles.entities.Profile;
 import com.carshop.app.modules.users.controllers.UserController;
 import com.carshop.app.modules.users.dtos.UserDTO;
 import com.carshop.app.modules.users.dtos.UserRegisterDTO;
@@ -35,12 +36,13 @@ public class UserControllerImpl implements UserController {
 
     private User mountUserOf(final int customerId, final UserRegisterDTO registerDTO) {
         final User user = new User();
-        user.setProfileId(registerDTO.getProfileId());
+        user.setProfile(new Profile(registerDTO.getProfileId()));
         user.setCustomerId(customerId);
         user.setName(registerDTO.getName());
         user.setUsername(registerDTO.getUsername());
         user.setEmail(registerDTO.getEmail());
         user.setPassword(registerDTO.getPassword());
+        user.setPasswordConfirm(registerDTO.getPasswordConfirm());
         user.setCreatedAt(LocalDateTime.now());
         user.setUpdatedAt(LocalDateTime.now());
         user.setDeleted(0);

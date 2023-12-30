@@ -1,16 +1,18 @@
 package com.carshop.app.modules.vehicles.repositories;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.carshop.app.modules.vehicles.entities.Vehicle;
 
-public interface IVehicleRepository extends MongoRepository<Vehicle, Integer> {
+public interface IVehicleRepository {
 
-    List<Vehicle> findAllByCustomerId(final int customerId);
+    Vehicle save(final Vehicle vehicle);
 
-    Optional<Vehicle> findByCustomerIdAndId(final int customerId, final String id);
+    Vehicle findByCustomerIdAndId(final int customerId, final String id);
+
+    Page<Vehicle> findAllByCustomerId(final int customerId, final String search, final Pageable pageable);
+
+    Vehicle delete(Vehicle vehicle);
 
 }

@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.carshop.app.authentication.filters.AuthorizationDataFilter;
 import com.carshop.app.http.HttpResponse;
 import com.carshop.app.modules.vehicles.controllers.VehicleController;
+import com.carshop.app.modules.vehicles.dtos.VehicleFilterDTO;
 import com.carshop.app.modules.vehicles.dtos.VehicleRegisterDTO;
 import com.carshop.app.modules.vehicles.dtos.VehicleUpdateDTO;
 
@@ -28,8 +30,21 @@ public class VehicleRoutes extends AuthorizationDataFilter {
     }
 
     @GetMapping
-    public HttpResponse listAll() {
-        return this.vehicleController.listAll(getCustomerId());
+    public HttpResponse listAll(
+            @RequestParam(name = "page", defaultValue = "0") final Integer page,
+            @RequestParam(name = "size", defaultValue = "100") final Integer size,
+            @RequestParam(name = "search", required = false) final String search,
+            @RequestParam(name = "brand", required = false) final Integer brandId,
+            @RequestParam(name = "color", required = false) final Integer colorId,
+            @RequestParam(name = "model", required = false) final Integer modelId) {
+        final VehicleFilterDTO filterDTO = new VehicleFilterDTO();
+        filterDTO.setPage(page);
+        filterDTO.setSize(size);
+        filterDTO.setSearch(search);
+        filterDTO.setBrandId(brandId);
+        filterDTO.setColorId(colorId);
+        filterDTO.setModelId(modelId);
+        return this.vehicleController.listAll(getCustomerId(), filterDTO);
     }
 
     @GetMapping("/{vehicleId}")

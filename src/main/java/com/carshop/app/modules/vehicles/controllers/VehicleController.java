@@ -1,12 +1,13 @@
 package com.carshop.app.modules.vehicles.controllers;
 
 import com.carshop.app.http.HttpResponse;
+import com.carshop.app.modules.vehicles.dtos.VehicleFilterDTO;
 import com.carshop.app.modules.vehicles.dtos.VehicleRegisterDTO;
 import com.carshop.app.modules.vehicles.dtos.VehicleUpdateDTO;
 
 public interface VehicleController {
 
-    HttpResponse listAll(final int customerId);
+    HttpResponse listAll(final int customerId, final VehicleFilterDTO filterDTO);
 
     HttpResponse findById(final int customerId, final String vehicleId);
 

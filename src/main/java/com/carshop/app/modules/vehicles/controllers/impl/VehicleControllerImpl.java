@@ -5,12 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.carshop.app.http.HttpResponse;
 import com.carshop.app.http.handles.HttpHandle;
 import com.carshop.app.modules.vehicles.controllers.VehicleController;
 import com.carshop.app.modules.vehicles.dtos.VehicleDTO;
+import com.carshop.app.modules.vehicles.dtos.VehicleFilterDTO;
+import com.carshop.app.modules.vehicles.dtos.VehiclePageDTO;
 import com.carshop.app.modules.vehicles.dtos.VehicleRegisterDTO;
 import com.carshop.app.modules.vehicles.dtos.VehicleUpdateDTO;
 import com.carshop.app.modules.vehicles.entities.Vehicle;
@@ -27,13 +32,16 @@ public class VehicleControllerImpl implements VehicleController {
     }
 
     @Override
-    public HttpResponse listAll(final int customerId) {
+    public HttpResponse listAll(final int customerId, final VehicleFilterDTO filterDTO) {
         try {
+            final Pageable paging = PageRequest.of(filterDTO.getPage(), filterDTO.getSize());
+            final Page<Vehicle> page = this.vehicleService.findAllByCustomerId(customerId, filterDTO.getSearch(), paging);
+
             final List<VehicleDTO> vehicles = new ArrayList<VehicleDTO>();
-            for (Vehicle vehicle : this.vehicleService.findAllByCustomerId(customerId)) {
+            for (Vehicle vehicle : page.getContent()) {
                 vehicles.add(mountVehicleDTOOf(vehicle));
             }
-            return HttpHandle.success(vehicles);
+            return HttpHandle.success(new VehiclePageDTO(vehicles, page.getNumber(), (int) page.getTotalElements(), page.getTotalPages()));
         } catch (Exception e) {
             return HttpHandle.badRequest(e.getMessage());
         }

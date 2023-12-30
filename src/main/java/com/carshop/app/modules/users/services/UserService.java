@@ -4,6 +4,6 @@ import com.carshop.app.modules.users.entities.User;
 
 public interface UserService {
 
-    User save(final User user);
+    User save(final User user) throws Exception;
 
 }

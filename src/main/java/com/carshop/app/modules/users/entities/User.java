@@ -4,10 +4,16 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.carshop.app.modules.profiles.entities.Profile;
 
 @Entity
 @Table(name = "users")
@@ -21,8 +27,9 @@ public class User {
     @Column(name = "id_customer", nullable = false)
     private Integer customerId;
 
-    @Column(name = "id_profile", nullable = false)
-    private Integer profileId;
+    @JoinColumn(name = "id_profile", nullable = false)
+    @OneToOne(fetch = FetchType.EAGER)
+    private Profile profile;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -45,6 +52,9 @@ public class User {
     @Column(name = "updated_at", insertable = false)
     private LocalDateTime updatedAt;
 
+    @Transient
+    private String passwordConfirm;
+
     public Integer getId() {
         return id;
     }
@@ -61,12 +71,12 @@ public class User {
         this.customerId = customerId;
     }
 
-    public Integer getProfileId() {
-        return profileId;
+    public Profile getProfile() {
+        return profile;
     }
 
-    public void setProfileId(Integer profileId) {
-        this.profileId = profileId;
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 
     public String getName() {
@@ -123,6 +133,14 @@ public class User {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
     }
 
 }

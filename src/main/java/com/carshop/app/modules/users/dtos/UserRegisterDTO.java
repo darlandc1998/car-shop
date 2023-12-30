@@ -9,6 +9,7 @@ public class UserRegisterDTO implements Serializable {
     private String username;
     private String email;
     private String password;
+    private String passwordConfirm;
 
     public Integer getProfileId() {
         return profileId;
@@ -48,6 +49,14 @@ public class UserRegisterDTO implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
     }
 
 }

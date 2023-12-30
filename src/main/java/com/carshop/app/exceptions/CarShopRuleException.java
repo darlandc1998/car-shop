@@ -10,6 +10,10 @@ public class CarShopRuleException extends RuntimeException {
     public static final String PERMISSION_NOT_FOUND = "permission_not_found";
     public static final String PROFILE_NOT_FOUND = "profile_not_found";
     public static final String VEHICLE_NOT_FOUND = "vehicle_not_found";
+    public static final String PASSWORD_OUT_OF_RULES = "password_out_of_rules";
+    public static final String PASSWORDS_DONT_MATCH = "passwords_dont_match";
+    public static final String USERNAME_ALREADY_USED = "username_already_used";
+    public static final String EMAIL_ALREADY_USED = "email_already_used";
 
     public CarShopRuleException(final String message) {
         super(message);

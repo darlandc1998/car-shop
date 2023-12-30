@@ -1,6 +1,6 @@
 package com.carshop.app.modules.login.services.impl;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Optional;
 
@@ -43,7 +43,7 @@ public class AuthenticatorServiceImpl implements AuthenticatorService {
             jwtObject.setSubject(user.get().getUsername());
             jwtObject.setIssuedAt(new Date(System.currentTimeMillis()));
             jwtObject.setExpiration(new Date(System.currentTimeMillis() + SecurityConfig.EXPIRATION));
-            jwtObject.setRoles(new ArrayList<String>());
+            jwtObject.setRoles(Arrays.asList(user.get().getProfile().getName()));
             final String token = JWTCreator.create(SecurityConfig.PREFIX, SecurityConfig.KEY, jwtObject);
             return new Authenticator(user.get().getUsername(), null, token);
         } else {
