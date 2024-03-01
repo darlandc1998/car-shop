@@ -1,25 +1,42 @@
-package com.carshop.app.modules.vehicles.dtos;
+package com.carshop.app.adapter.api.vehicle.dto;
+
+import com.carshop.app.adapter.api.brand.dto.BrandDTO;
+import com.carshop.app.adapter.api.category.dto.CategoryDTO;
+import com.carshop.app.adapter.api.color.dto.ColorDTO;
+import com.carshop.app.adapter.api.customer.dto.CustomerDTO;
+import com.carshop.app.adapter.api.engineType.dto.EngineTypeDTO;
+import com.carshop.app.adapter.api.fuel.dto.FuelDTO;
+import com.carshop.app.adapter.api.model.dto.ModelDTO;
+import com.carshop.app.adapter.api.version.dto.VersionDTO;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 public class VehicleDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private String id;
+    private CustomerDTO customer;
+    private BrandDTO brand;
+    private ModelDTO model;
+    private VersionDTO version;
+    private CategoryDTO category;
+    private ColorDTO color;
+    private EngineTypeDTO engineType;
+    private FuelDTO fuel;
     private String name;
     private String description;
-    private int yearProduction;
-    private int yearRelease;
+    private Integer productionYear;
+    private Integer releaseYear;
     private String sign;
-    private int running;
-    private int brandId;
-    private String brandName;
-    private int colorId;
-    private String colorName;
-    private int modelId;
-    private String modelName;
-    private int active;
+    private BigDecimal running;
+    private BigDecimal price;
+    private BigDecimal promotion;
+
+    public VehicleDTO() {
+
+    }
 
     public String getId() {
         return id;
@@ -27,6 +44,70 @@ public class VehicleDTO implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public CustomerDTO getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(CustomerDTO customer) {
+        this.customer = customer;
+    }
+
+    public BrandDTO getBrand() {
+        return brand;
+    }
+
+    public void setBrand(BrandDTO brand) {
+        this.brand = brand;
+    }
+
+    public ModelDTO getModel() {
+        return model;
+    }
+
+    public void setModel(ModelDTO model) {
+        this.model = model;
+    }
+
+    public VersionDTO getVersion() {
+        return version;
+    }
+
+    public void setVersion(VersionDTO version) {
+        this.version = version;
+    }
+
+    public CategoryDTO getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryDTO category) {
+        this.category = category;
+    }
+
+    public ColorDTO getColor() {
+        return color;
+    }
+
+    public void setColor(ColorDTO color) {
+        this.color = color;
+    }
+
+    public EngineTypeDTO getEngineType() {
+        return engineType;
+    }
+
+    public void setEngineType(EngineTypeDTO engineType) {
+        this.engineType = engineType;
+    }
+
+    public FuelDTO getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(FuelDTO fuel) {
+        this.fuel = fuel;
     }
 
     public String getName() {
@@ -45,20 +126,20 @@ public class VehicleDTO implements Serializable {
         this.description = description;
     }
 
-    public int getYearProduction() {
-        return yearProduction;
+    public Integer getProductionYear() {
+        return productionYear;
     }
 
-    public void setYearProduction(int yearProduction) {
-        this.yearProduction = yearProduction;
+    public void setProductionYear(Integer productionYear) {
+        this.productionYear = productionYear;
     }
 
-    public int getYearRelease() {
-        return yearRelease;
+    public Integer getReleaseYear() {
+        return releaseYear;
     }
 
-    public void setYearRelease(int yearRelease) {
-        this.yearRelease = yearRelease;
+    public void setReleaseYear(Integer releaseYear) {
+        this.releaseYear = releaseYear;
     }
 
     public String getSign() {
@@ -69,68 +150,27 @@ public class VehicleDTO implements Serializable {
         this.sign = sign;
     }
 
-    public int getRunning() {
+    public BigDecimal getRunning() {
         return running;
     }
 
-    public void setRunning(int running) {
+    public void setRunning(BigDecimal running) {
         this.running = running;
     }
 
-    public int getBrandId() {
-        return brandId;
+    public BigDecimal getPrice() {
+        return price;
     }
 
-    public void setBrandId(int brandId) {
-        this.brandId = brandId;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
-    public String getBrandName() {
-        return brandName;
+    public BigDecimal getPromotion() {
+        return promotion;
     }
 
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
+    public void setPromotion(BigDecimal promotion) {
+        this.promotion = promotion;
     }
-
-    public int getColorId() {
-        return colorId;
-    }
-
-    public void setColorId(int colorId) {
-        this.colorId = colorId;
-    }
-
-    public String getColorName() {
-        return colorName;
-    }
-
-    public void setColorName(String colorName) {
-        this.colorName = colorName;
-    }
-
-    public int getModelId() {
-        return modelId;
-    }
-
-    public void setModelId(int modelId) {
-        this.modelId = modelId;
-    }
-
-    public String getModelName() {
-        return modelName;
-    }
-
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
-    }
-
-    public int getActive() {
-        return active;
-    }
-
-    public void setActive(int active) {
-        this.active = active;
-    }
-
 }

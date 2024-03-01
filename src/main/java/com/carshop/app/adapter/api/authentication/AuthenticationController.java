@@ -1,27 +1,26 @@
-package com.carshop.app.modules.login.routes;
+package com.carshop.app.adapter.api.authentication;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.carshop.app.http.HttpResponse;
-import com.carshop.app.modules.login.controllers.AuthenticatorController;
-import com.carshop.app.modules.login.dtos.LoginDTO;
+import com.carshop.app.adapter.api.authentication.dto.LoginDTO;
+import com.carshop.app.infrastructure.http.HttpResponse;
 
 @RestController
-@RequestMapping("/api/v1/login")
-public class AuthenticatorRoutes {
+@RequestMapping("/api/auth")
+public class AuthenticationController {
 
-    private AuthenticatorController authenticatorController;
+    private final AuthenticationEndpointAdapter authenticationEndpointAdapter;
 
-    public AuthenticatorRoutes(final AuthenticatorController authenticatorController) {
-        this.authenticatorController = authenticatorController;
+    public AuthenticationController(final AuthenticationEndpointAdapter authenticationEndpointAdapter) {
+        this.authenticationEndpointAdapter = authenticationEndpointAdapter;
     }
 
-    @PostMapping
+    @PostMapping("/v1")
     public HttpResponse login(@RequestBody final LoginDTO loginDTO) {
-        return this.authenticatorController.login(loginDTO);
+        return this.authenticationEndpointAdapter.login(loginDTO);
     }
 
 }

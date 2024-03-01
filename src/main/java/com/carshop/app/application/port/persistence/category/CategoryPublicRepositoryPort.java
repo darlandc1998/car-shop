@@ -4,7 +4,7 @@ import com.carshop.app.domain.Category;
 
 import java.util.Collection;
 
-public interface CategoryRepositoryPort {
+public interface CategoryPublicRepositoryPort {
 
     Collection<Category> findUniversal();
 

@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.persistence.engineType;
+package com.carshop.app.adapter.persistence.engineType.mapper;
 
 import com.carshop.app.adapter.persistence.engineType.entity.EngineTypeEntity;
 import com.carshop.app.domain.EngineType;
@@ -12,7 +12,7 @@ public class EngineTypeJpaMapper {
 
     }
 
-    EngineTypeEntity toJpaEntity(final EngineType engineType){
+    public EngineTypeEntity toJpaEntity(final EngineType engineType){
         final EngineTypeEntity entity = new EngineTypeEntity();
         entity.setId(engineType.getId());
         entity.setName(engineType.getName());
@@ -24,7 +24,7 @@ public class EngineTypeJpaMapper {
         return entity;
     }
 
-    EngineType toDomain(final EngineTypeEntity entity){
+    public EngineType toDomain(final EngineTypeEntity entity){
         final EngineType engineType = new EngineType();
         engineType.setId(entity.getId());
         engineType.setName(entity.getName());

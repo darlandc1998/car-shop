@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.api.fuel;
+package com.carshop.app.adapter.api.fuel.mapper;
 
 import com.carshop.app.adapter.api.fuel.dto.FuelDTO;
 import com.carshop.app.domain.Fuel;
@@ -11,7 +11,7 @@ public class FuelDtoMapper {
 
     }
 
-    FuelDTO toDto(final Fuel fuel){
+    public FuelDTO toDto(final Fuel fuel){
         final FuelDTO fuelDTO = new FuelDTO();
         fuelDTO.setId(fuel.getId());
         fuelDTO.setName(fuel.getName());

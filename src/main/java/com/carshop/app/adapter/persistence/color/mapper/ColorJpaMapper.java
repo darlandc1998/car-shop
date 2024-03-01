@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.persistence.color;
+package com.carshop.app.adapter.persistence.color.mapper;
 
 import com.carshop.app.adapter.persistence.color.entity.ColorEntity;
 import com.carshop.app.domain.Color;
@@ -7,7 +7,7 @@ import com.carshop.app.infrastructure.annotation.Mapper;
 @Mapper
 public class ColorJpaMapper {
 
-    ColorEntity toJpaEntity(final Color color){
+    public ColorEntity toJpaEntity(final Color color){
         final ColorEntity entity = new ColorEntity();
         entity.setId(color.getId());
         entity.setName(color.getName());
@@ -19,7 +19,7 @@ public class ColorJpaMapper {
         return entity;
     }
 
-    Color toDomain(final ColorEntity entity){
+    public Color toDomain(final ColorEntity entity){
         final Color domain = new Color();
         domain.setId(entity.getId());
         domain.setName(entity.getName());

@@ -1,5 +1,6 @@
-package com.carshop.app.adapter.api.fuel;
+package com.carshop.app.adapter.api.fuel.controller;
 
+import com.carshop.app.adapter.api.fuel.adapter.FuelPublicEndpointAdapter;
 import com.carshop.app.infrastructure.http.HttpResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

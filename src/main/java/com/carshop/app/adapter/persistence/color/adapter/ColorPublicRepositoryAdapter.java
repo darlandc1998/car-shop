@@ -1,5 +1,7 @@
-package com.carshop.app.adapter.persistence.color;
+package com.carshop.app.adapter.persistence.color.adapter;
 
+import com.carshop.app.adapter.persistence.color.repository.ColorRepository;
+import com.carshop.app.adapter.persistence.color.mapper.ColorJpaMapper;
 import com.carshop.app.application.port.persistence.color.ColorPublicRepositoryPort;
 import com.carshop.app.domain.Color;
 import com.carshop.app.infrastructure.annotation.Adapter;

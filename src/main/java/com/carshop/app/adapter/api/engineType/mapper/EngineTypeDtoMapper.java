@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.api.engineType;
+package com.carshop.app.adapter.api.engineType.mapper;
 
 import com.carshop.app.adapter.api.engineType.dto.EngineTypeDTO;
 import com.carshop.app.domain.EngineType;
@@ -11,7 +11,7 @@ public class EngineTypeDtoMapper {
 
     }
 
-    EngineTypeDTO toDto(final EngineType engineType){
+    public EngineTypeDTO toDto(final EngineType engineType){
         final EngineTypeDTO engineTypeDTO = new EngineTypeDTO();
         engineTypeDTO.setId(engineType.getId());
         engineTypeDTO.setName(engineType.getName());

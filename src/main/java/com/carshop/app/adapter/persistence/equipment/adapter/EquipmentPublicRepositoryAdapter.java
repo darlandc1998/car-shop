@@ -1,5 +1,7 @@
-package com.carshop.app.adapter.persistence.equipment;
+package com.carshop.app.adapter.persistence.equipment.adapter;
 
+import com.carshop.app.adapter.persistence.equipment.repository.EquipmentRepository;
+import com.carshop.app.adapter.persistence.equipment.mapper.EquipmentJpaMapper;
 import com.carshop.app.application.port.persistence.equipment.EquipmentPublicRepositoryPort;
 import com.carshop.app.domain.Equipment;
 import com.carshop.app.infrastructure.annotation.Adapter;

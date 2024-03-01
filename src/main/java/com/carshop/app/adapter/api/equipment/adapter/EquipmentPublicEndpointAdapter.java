@@ -1,6 +1,7 @@
-package com.carshop.app.adapter.api.equipment;
+package com.carshop.app.adapter.api.equipment.adapter;
 
 import com.carshop.app.adapter.api.equipment.dto.EquipmentDTO;
+import com.carshop.app.adapter.api.equipment.mapper.EquipmentDtoMapper;
 import com.carshop.app.application.port.api.equipment.EquipmentPublicEndpointPort;
 import com.carshop.app.application.usecase.equipment.EquipmentPublicUseCase;
 import com.carshop.app.infrastructure.annotation.Adapter;

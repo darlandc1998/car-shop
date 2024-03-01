@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.api.version;
+package com.carshop.app.adapter.api.version.adapter;
 
 import com.carshop.app.adapter.api.version.dto.VersionDTO;
 import com.carshop.app.adapter.api.version.mapper.VersionDtoMapper;

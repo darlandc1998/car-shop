@@ -1,5 +1,7 @@
-package com.carshop.app.adapter.persistence.engineType;
+package com.carshop.app.adapter.persistence.engineType.adapter;
 
+import com.carshop.app.adapter.persistence.engineType.repository.EngineTypeRepository;
+import com.carshop.app.adapter.persistence.engineType.mapper.EngineTypeJpaMapper;
 import com.carshop.app.application.port.persistence.engineType.EngineTypePublicRepositoryPort;
 import com.carshop.app.domain.EngineType;
 import com.carshop.app.infrastructure.annotation.Adapter;

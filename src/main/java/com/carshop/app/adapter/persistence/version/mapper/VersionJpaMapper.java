@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.persistence.version;
+package com.carshop.app.adapter.persistence.version.mapper;
 
 import com.carshop.app.adapter.persistence.model.entity.ModelEntity;
 import com.carshop.app.adapter.persistence.version.entity.VersionEntity;
@@ -13,7 +13,7 @@ public class VersionJpaMapper {
 
     }
 
-    VersionEntity toJpaEntity(final Version version) {
+    public VersionEntity toJpaEntity(final Version version) {
         final VersionEntity entity = new VersionEntity();
         entity.setId(version.getId());
         entity.setModel(new ModelEntity(version.getModel().getId()));
@@ -25,7 +25,7 @@ public class VersionJpaMapper {
         return entity;
     }
 
-    Version toDomain(final VersionEntity entity) {
+    public Version toDomain(final VersionEntity entity) {
         final Version version = new Version();
         version.setId(entity.getId());
         version.setModel(new Model(entity.getModel().getId()));

@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.api.category;
+package com.carshop.app.adapter.api.category.adapter;
 
 import com.carshop.app.adapter.api.category.dto.CategoryDTO;
 import com.carshop.app.adapter.api.category.mapper.CategoryDtoMapper;

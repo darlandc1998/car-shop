@@ -1,4 +1,4 @@
-package com.carshop.app.modules.vehicles.dtos;
+package com.carshop.app.adapter.api.vehicle.dto;
 
 import java.io.Serializable;
 import java.util.List;

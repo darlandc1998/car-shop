@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.persistence.equipment;
+package com.carshop.app.adapter.persistence.equipment.mapper;
 
 import com.carshop.app.adapter.persistence.equipment.entity.EquipmentEntity;
 import com.carshop.app.domain.Equipment;
@@ -11,7 +11,7 @@ public class EquipmentJpaMapper {
 
     }
 
-    EquipmentEntity toJpaEntity(final Equipment equipment){
+    public EquipmentEntity toJpaEntity(final Equipment equipment){
         final EquipmentEntity entity = new EquipmentEntity();
         entity.setId(equipment.getId());
         entity.setName(equipment.getName());
@@ -22,7 +22,7 @@ public class EquipmentJpaMapper {
         return entity;
     }
 
-    Equipment toDomain(final EquipmentEntity entity){
+    public Equipment toDomain(final EquipmentEntity entity){
         final Equipment equipment = new Equipment();
         equipment.setId(entity.getId());
         equipment.setName(entity.getName());

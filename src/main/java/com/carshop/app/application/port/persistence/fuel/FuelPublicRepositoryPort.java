@@ -4,7 +4,7 @@ import com.carshop.app.domain.Fuel;
 
 import java.util.Collection;
 
-public interface FuelRepositoryPort {
+public interface FuelPublicRepositoryPort {
 
     Collection<Fuel> findUniversal();
 

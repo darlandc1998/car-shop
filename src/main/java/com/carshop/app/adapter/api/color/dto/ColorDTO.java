@@ -1,31 +1,31 @@
-package com.carshop.app.modules.colors.dtos;
+package com.carshop.app.adapter.api.color.dto;
 
 import java.io.Serializable;
 
 public class ColorDTO implements Serializable {
 
-    
-    private int id;
+
+    private long id;
     private String name;
 
     public ColorDTO() {
 
     }
 
-    public ColorDTO(final int id) {
+    public ColorDTO(final long id) {
         this.id = id;
     }
 
-    public ColorDTO(final int id, final String name) {
+    public ColorDTO(final long id, final String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

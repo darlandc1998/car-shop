@@ -1,5 +1,7 @@
-package com.carshop.app.adapter.persistence.version;
+package com.carshop.app.adapter.persistence.version.adapter;
 
+import com.carshop.app.adapter.persistence.version.repository.VersionRepository;
+import com.carshop.app.adapter.persistence.version.mapper.VersionJpaMapper;
 import com.carshop.app.application.port.persistence.version.VersionPublicRepositoryPort;
 import com.carshop.app.domain.Version;
 import com.carshop.app.infrastructure.annotation.Adapter;

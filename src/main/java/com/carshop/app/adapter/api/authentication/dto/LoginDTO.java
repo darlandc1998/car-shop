@@ -1,4 +1,4 @@
-package com.carshop.app.modules.login.dtos;
+package com.carshop.app.adapter.api.authentication.dto;
 
 import java.io.Serializable;
 

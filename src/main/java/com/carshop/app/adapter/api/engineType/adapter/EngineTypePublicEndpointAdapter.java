@@ -1,6 +1,7 @@
-package com.carshop.app.adapter.api.engineType;
+package com.carshop.app.adapter.api.engineType.adapter;
 
 import com.carshop.app.adapter.api.engineType.dto.EngineTypeDTO;
+import com.carshop.app.adapter.api.engineType.mapper.EngineTypeDtoMapper;
 import com.carshop.app.application.port.api.engineType.EngineTypePublicEndpointPort;
 import com.carshop.app.application.usecase.engineTypes.EngineTypePublicUseCase;
 import com.carshop.app.infrastructure.annotation.Adapter;

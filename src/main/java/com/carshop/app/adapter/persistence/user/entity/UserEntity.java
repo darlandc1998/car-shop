@@ -1,35 +1,28 @@
-package com.carshop.app.modules.users.entities;
+package com.carshop.app.adapter.persistence.user.entity;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import jakarta.persistence.*;
 
-import com.carshop.app.modules.profiles.entities.Profile;
+import com.carshop.app.adapter.persistence.customer.entity.CustomerEntity;
+import com.carshop.app.adapter.persistence.profile.entity.ProfileEntity;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long id;
 
-    @Column(name = "id_customer", nullable = false)
-    private Integer customerId;
+    @OneToOne
+    @JoinColumn(name = "id_customer", referencedColumnName = "id")
+    private CustomerEntity customer;
 
-    @JoinColumn(name = "id_profile", nullable = false)
-    @OneToOne(fetch = FetchType.EAGER)
-    private Profile profile;
+    @OneToOne
+    @JoinColumn(name = "id_profile", referencedColumnName = "id")
+    private ProfileEntity profile;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -43,8 +36,11 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "active", insertable = false)
+    private Boolean active;
+
     @Column(name = "deleted", insertable = false, updatable = false)
-    private Integer deleted;
+    private Boolean deleted;
 
     @Column(name = "created_at", insertable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -52,30 +48,27 @@ public class User {
     @Column(name = "updated_at", insertable = false)
     private LocalDateTime updatedAt;
 
-    @Transient
-    private String passwordConfirm;
-
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getCustomerId() {
-        return customerId;
+    public CustomerEntity getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
+    public void setCustomer(CustomerEntity customer) {
+        this.customer = customer;
     }
 
-    public Profile getProfile() {
+    public ProfileEntity getProfile() {
         return profile;
     }
 
-    public void setProfile(Profile profile) {
+    public void setProfile(ProfileEntity profile) {
         this.profile = profile;
     }
 
@@ -111,11 +104,19 @@ public class User {
         this.email = email;
     }
 
-    public Integer getDeleted() {
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public Boolean getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(Integer deleted) {
+    public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
     }
 
@@ -133,14 +134,6 @@ public class User {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-    public String getPasswordConfirm() {
-        return passwordConfirm;
-    }
-
-    public void setPasswordConfirm(String passwordConfirm) {
-        this.passwordConfirm = passwordConfirm;
     }
 
 }

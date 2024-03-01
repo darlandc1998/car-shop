@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.persistence.version;
+package com.carshop.app.adapter.persistence.version.repository;
 
 import com.carshop.app.adapter.persistence.version.entity.VersionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

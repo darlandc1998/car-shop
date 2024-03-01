@@ -1,7 +1,7 @@
 package com.carshop.app.application.service.engineType;
 
-import com.carshop.app.application.port.persistence.engineType.EngineTypeRepositoryPort;
-import com.carshop.app.application.usecase.engineTypes.EngineTypeUseCase;
+import com.carshop.app.application.port.persistence.engineType.EngineTypePublicRepositoryPort;
+import com.carshop.app.application.usecase.engineTypes.EngineTypePublicUseCase;
 import com.carshop.app.domain.EngineType;
 import com.carshop.app.infrastructure.exception.CarShopRuleException;
 import org.springframework.stereotype.Service;
@@ -9,16 +9,16 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-public class EngineTypeService implements EngineTypeUseCase {
+public class EngineTypePublicService implements EngineTypePublicUseCase {
 
-    private final EngineTypeRepositoryPort engineTypeRepositoryPort;
+    private final EngineTypePublicRepositoryPort engineTypePublicRepositoryPort;
 
-    public EngineTypeService(final EngineTypeRepositoryPort engineTypeRepositoryPort){
-        this.engineTypeRepositoryPort = engineTypeRepositoryPort;
+    public EngineTypePublicService(final EngineTypePublicRepositoryPort engineTypePublicRepositoryPort){
+        this.engineTypePublicRepositoryPort = engineTypePublicRepositoryPort;
     }
 
     @Override
     public Collection<EngineType> findUniversal() throws CarShopRuleException {
-        return this.engineTypeRepositoryPort.findUniversal();
+        return this.engineTypePublicRepositoryPort.findUniversal();
     }
 }

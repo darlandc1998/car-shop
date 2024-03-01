@@ -4,7 +4,7 @@ import com.carshop.app.domain.EngineType;
 
 import java.util.Collection;
 
-public interface EngineTypeRepositoryPort {
+public interface EngineTypePublicRepositoryPort {
 
     Collection<EngineType> findUniversal();
 

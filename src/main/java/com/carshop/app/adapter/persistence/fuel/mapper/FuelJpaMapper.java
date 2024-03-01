@@ -1,12 +1,8 @@
-package com.carshop.app.adapter.persistence.fuel;
+package com.carshop.app.adapter.persistence.fuel.mapper;
 
-import com.carshop.app.adapter.persistence.customer.entity.CustomerEntity;
 import com.carshop.app.adapter.persistence.fuel.entity.FuelEntity;
-import com.carshop.app.domain.Customer;
 import com.carshop.app.domain.Fuel;
 import com.carshop.app.infrastructure.annotation.Mapper;
-
-import java.util.Objects;
 
 @Mapper
 public class FuelJpaMapper {
@@ -15,7 +11,7 @@ public class FuelJpaMapper {
 
     }
 
-    FuelEntity toJpaMapper(final Fuel fuel){
+    public FuelEntity toJpaMapper(final Fuel fuel){
         final FuelEntity entity = new FuelEntity();
         entity.setId(fuel.getId());
         entity.setName(fuel.getName());
@@ -27,7 +23,7 @@ public class FuelJpaMapper {
         return entity;
     }
 
-    Fuel toJpaMapper(final FuelEntity entity){
+    public Fuel toDomain(final FuelEntity entity){
         final Fuel fuel = new Fuel();
         fuel.setId(entity.getId());
         fuel.setName(entity.getName());

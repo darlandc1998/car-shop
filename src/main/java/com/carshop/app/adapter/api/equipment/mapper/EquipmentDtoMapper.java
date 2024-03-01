@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.api.equipment;
+package com.carshop.app.adapter.api.equipment.mapper;
 
 import com.carshop.app.adapter.api.equipment.dto.EquipmentDTO;
 import com.carshop.app.domain.Equipment;
@@ -11,7 +11,7 @@ public class EquipmentDtoMapper {
 
     }
 
-    EquipmentDTO toDto(final Equipment equipment){
+    public EquipmentDTO toDto(final Equipment equipment){
         final EquipmentDTO dto = new EquipmentDTO();
         dto.setId(equipment.getId());
         dto.setName(equipment.getName());

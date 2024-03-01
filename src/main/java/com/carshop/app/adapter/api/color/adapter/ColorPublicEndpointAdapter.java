@@ -1,6 +1,7 @@
-package com.carshop.app.adapter.api.color;
+package com.carshop.app.adapter.api.color.adapter;
 
 import com.carshop.app.adapter.api.color.dto.ColorDTO;
+import com.carshop.app.adapter.api.color.mapper.ColorDtoMapper;
 import com.carshop.app.application.port.api.color.ColorPublicEndpointPort;
 import com.carshop.app.application.usecase.color.ColorPublicUseCase;
 import com.carshop.app.infrastructure.annotation.Adapter;

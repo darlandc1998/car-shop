@@ -1,5 +1,7 @@
-package com.carshop.app.adapter.persistence.brand;
+package com.carshop.app.adapter.persistence.brand.adapter;
 
+import com.carshop.app.adapter.persistence.brand.repository.BrandRepository;
+import com.carshop.app.adapter.persistence.brand.mapper.BrandJpaMapper;
 import com.carshop.app.application.port.persistence.brand.BrandPublicRepositoryPort;
 import com.carshop.app.domain.Brand;
 import com.carshop.app.infrastructure.annotation.Adapter;

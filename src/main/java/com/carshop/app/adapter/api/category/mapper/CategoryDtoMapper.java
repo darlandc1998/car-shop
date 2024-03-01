@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.api.category;
+package com.carshop.app.adapter.api.category.mapper;
 
 import com.carshop.app.adapter.api.category.dto.CategoryDTO;
 import com.carshop.app.domain.Category;
@@ -11,7 +11,7 @@ public class CategoryDtoMapper {
 
     }
 
-    CategoryDTO toDto(final Category category){
+    public CategoryDTO toDto(final Category category){
         final CategoryDTO categoryDTO = new CategoryDTO();
         categoryDTO.setId(category.getId());
         categoryDTO.setName(category.getName());

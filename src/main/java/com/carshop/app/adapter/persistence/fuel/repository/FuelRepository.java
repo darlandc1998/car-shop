@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.persistence.fuel;
+package com.carshop.app.adapter.persistence.fuel.repository;
 
 import com.carshop.app.adapter.persistence.fuel.entity.FuelEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

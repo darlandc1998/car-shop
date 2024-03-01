@@ -1,7 +1,7 @@
 package com.carshop.app.application.service.fuel;
 
-import com.carshop.app.application.port.persistence.fuel.FuelRepositoryPort;
-import com.carshop.app.application.usecase.fuel.FuelUseCase;
+import com.carshop.app.application.port.persistence.fuel.FuelPublicRepositoryPort;
+import com.carshop.app.application.usecase.fuel.FuelPublicUseCase;
 import com.carshop.app.domain.Fuel;
 import com.carshop.app.infrastructure.exception.CarShopRuleException;
 import org.springframework.stereotype.Service;
@@ -9,16 +9,16 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-public class FuelService implements FuelUseCase {
+public class FuelPublicService implements FuelPublicUseCase {
 
-    private final FuelRepositoryPort fuelRepositoryPort;
+    private final FuelPublicRepositoryPort fuelPublicRepositoryPort;
 
-    public FuelService(final FuelRepositoryPort fuelRepositoryPort){
-        this.fuelRepositoryPort = fuelRepositoryPort;
+    public FuelPublicService(final FuelPublicRepositoryPort fuelPublicRepositoryPort){
+        this.fuelPublicRepositoryPort = fuelPublicRepositoryPort;
     }
 
     @Override
     public Collection<Fuel> findUniversal() throws CarShopRuleException {
-        return this.fuelRepositoryPort.findUniversal();
+        return this.fuelPublicRepositoryPort.findUniversal();
     }
 }

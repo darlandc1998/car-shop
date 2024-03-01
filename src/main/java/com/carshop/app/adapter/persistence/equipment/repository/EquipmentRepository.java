@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.persistence.equipment;
+package com.carshop.app.adapter.persistence.equipment.repository;
 
 import com.carshop.app.adapter.persistence.equipment.entity.EquipmentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

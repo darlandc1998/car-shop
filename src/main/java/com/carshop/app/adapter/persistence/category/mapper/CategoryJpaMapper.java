@@ -1,12 +1,8 @@
-package com.carshop.app.adapter.persistence.category;
+package com.carshop.app.adapter.persistence.category.mapper;
 
 import com.carshop.app.adapter.persistence.category.entity.CategoryEntity;
-import com.carshop.app.adapter.persistence.customer.entity.CustomerEntity;
 import com.carshop.app.domain.Category;
-import com.carshop.app.domain.Customer;
 import com.carshop.app.infrastructure.annotation.Mapper;
-
-import java.util.Objects;
 
 @Mapper
 public class CategoryJpaMapper {
@@ -15,7 +11,7 @@ public class CategoryJpaMapper {
 
     }
 
-    CategoryEntity toJpaEntity(final Category category){
+    public CategoryEntity toJpaEntity(final Category category){
         final CategoryEntity entity = new CategoryEntity();
         entity.setId(category.getId());
         entity.setName(category.getName());
@@ -27,7 +23,7 @@ public class CategoryJpaMapper {
         return entity;
     }
 
-    Category toDomain(final CategoryEntity entity){
+    public Category toDomain(final CategoryEntity entity){
         final Category category = new Category();
         category.setId(entity.getId());
         category.setName(entity.getName());

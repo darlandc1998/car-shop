@@ -1,6 +1,7 @@
-package com.carshop.app.adapter.api.fuel;
+package com.carshop.app.adapter.api.fuel.adapter;
 
 import com.carshop.app.adapter.api.fuel.dto.FuelDTO;
+import com.carshop.app.adapter.api.fuel.mapper.FuelDtoMapper;
 import com.carshop.app.application.port.api.fuel.FuelPublicEndpointPort;
 import com.carshop.app.application.usecase.fuel.FuelPublicUseCase;
 import com.carshop.app.infrastructure.annotation.Adapter;

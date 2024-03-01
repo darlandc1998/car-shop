@@ -1,21 +1,23 @@
-package com.carshop.app.modules.users.dtos;
+package com.carshop.app.adapter.api.user.dto;
 
 import java.io.Serializable;
 
 public class UserRegisterDTO implements Serializable {
 
-    private Integer profileId;
+    private static final long serialVersionUID = 1L;
+
+    private long profileId;
     private String name;
     private String username;
     private String email;
     private String password;
     private String passwordConfirm;
 
-    public Integer getProfileId() {
+    public long getProfileId() {
         return profileId;
     }
 
-    public void setProfileId(Integer profileId) {
+    public void setProfileId(long profileId) {
         this.profileId = profileId;
     }
 

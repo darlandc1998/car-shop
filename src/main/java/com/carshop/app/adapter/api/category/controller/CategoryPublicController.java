@@ -1,5 +1,6 @@
-package com.carshop.app.adapter.api.category;
+package com.carshop.app.adapter.api.category.controller;
 
+import com.carshop.app.adapter.api.category.adapter.CategoryPublicEndpointAdapter;
 import com.carshop.app.infrastructure.http.HttpResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

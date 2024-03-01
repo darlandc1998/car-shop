@@ -4,7 +4,7 @@ import com.carshop.app.domain.Equipment;
 
 import java.util.Collection;
 
-public interface EquipmentRepositoryPort {
+public interface EquipmentPublicRepositoryPort {
 
     Collection<Equipment> findUniversal();
 

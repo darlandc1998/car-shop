@@ -1,5 +1,6 @@
-package com.carshop.app.adapter.api.brand;
+package com.carshop.app.adapter.api.brand.adapter;
 
+import com.carshop.app.adapter.api.brand.mapper.BrandDtoMapper;
 import com.carshop.app.application.port.api.brand.BrandPublicEndpointPort;
 import com.carshop.app.application.usecase.brand.BrandPublicUseCase;
 import com.carshop.app.domain.Brand;

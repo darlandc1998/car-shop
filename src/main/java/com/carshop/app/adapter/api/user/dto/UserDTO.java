@@ -1,23 +1,27 @@
-package com.carshop.app.modules.users.dtos;
+package com.carshop.app.adapter.api.user.dto;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_NULL)
 public class UserDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
+    private long id;
     private String name;
     private String username;
     private String email;
-    private Integer profileId;
+    private long profileId;
     private String profileName;
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -45,11 +49,11 @@ public class UserDTO implements Serializable {
         this.email = email;
     }
 
-    public Integer getProfileId() {
+    public long getProfileId() {
         return profileId;
     }
 
-    public void setProfileId(Integer profileId) {
+    public void setProfileId(long profileId) {
         this.profileId = profileId;
     }
 

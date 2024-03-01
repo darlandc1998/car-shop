@@ -1,89 +1,62 @@
-package com.carshop.app.modules.brands.entities;
+package com.carshop.app.adapter.persistence.brand.entity;
 
+import jakarta.persistence.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Where;
-
-import com.carshop.app.validator.annotation.Required;
-
 @Entity(name = "brands")
-@Where(clause = "deleted = 0")
-@SQLDelete(sql = "UPDATE brands SET deleted = id WHERE id = ?")
-public class Brand implements Serializable {
+@SQLRestriction("deleted = false")
+@SQLDelete(sql = "UPDATE brands SET deleted = true WHERE id = ?")
+public class BrandEntity implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "increment")
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long id;
 
-    @Column(name = "id_customer", nullable = false)
-    private Integer customerId;
 
-    @Required
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "deleted", insertable = false)
-    private Integer deleted;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "created_at", insertable = false)
+    @Column(name = "cover")
+    private String cover;
+
+    @Column(name = "active", insertable = false)
+    private Boolean active;
+
+    @Column(name = "deleted", insertable = false)
+    private Boolean deleted;
+
+    @Column(name = "created_at", insertable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at", insertable = false)
     private LocalDateTime updatedAt;
 
-    public Brand() {
+    public BrandEntity() {
 
     }
 
-    public Brand(Integer id) {
+    public BrandEntity(Long id) {
         this.id = id;
     }
 
-    public Brand(String name) {
-        this.name = name;
-    }
-
-    public Brand(Integer id, Integer customerId) {
-        this.id = id;
-        this.customerId = customerId;
-    }
-
-    public Brand(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Brand(Integer id, Integer customerId, String name) {
-        this.id = id;
-        this.customerId = customerId;
-        this.name = name;
-    }
-
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
     }
 
     public String getName() {
@@ -94,11 +67,35 @@ public class Brand implements Serializable {
         this.name = name;
     }
 
-    public Integer getDeleted() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public Boolean getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(Integer deleted) {
+    public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
     }
 

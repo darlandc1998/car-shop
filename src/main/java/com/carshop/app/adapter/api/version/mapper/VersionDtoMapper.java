@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.api.version;
+package com.carshop.app.adapter.api.version.mapper;
 
 import com.carshop.app.adapter.api.version.dto.VersionDTO;
 import com.carshop.app.domain.Version;
@@ -11,7 +11,7 @@ public class VersionDtoMapper {
 
     }
 
-    VersionDTO toDto(final Version version){
+    public VersionDTO toDto(final Version version){
         final VersionDTO versionDTO = new VersionDTO();
         versionDTO.setId(version.getId());
         versionDTO.setName(version.getName());

@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.persistence.engineType;
+package com.carshop.app.adapter.persistence.engineType.repository;
 
 import com.carshop.app.adapter.persistence.engineType.entity.EngineTypeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

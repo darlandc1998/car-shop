@@ -1,5 +1,6 @@
-package com.carshop.app.adapter.api.equipment;
+package com.carshop.app.adapter.api.equipment.controller;
 
+import com.carshop.app.adapter.api.equipment.adapter.EquipmentPublicEndpointAdapter;
 import com.carshop.app.infrastructure.http.HttpResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

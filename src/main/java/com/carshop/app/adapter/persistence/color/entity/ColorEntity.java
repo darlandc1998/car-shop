@@ -1,10 +1,11 @@
-package com.carshop.app.modules.colors.entities;
+package com.carshop.app.adapter.persistence.color.entity;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
+import com.carshop.app.adapter.persistence.customer.entity.CustomerEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
@@ -20,10 +21,8 @@ public class ColorEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "increment")
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long id;
 
-    @Column(name = "id_customer")
-    private Integer customerId;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -47,38 +46,17 @@ public class ColorEntity implements Serializable {
 
     }
 
-    public ColorEntity(final Integer id) {
+    public ColorEntity(final Long id) {
         this.id = id;
     }
 
-    public ColorEntity(final String name) {
-        this.name = name;
-    }
 
-    public ColorEntity(final Integer customerId, final String name) {
-        this.customerId = customerId;
-        this.name = name;
-    }
-
-    public ColorEntity(final Integer id, final Integer customerId) {
-        this.id = id;
-        this.customerId = customerId;
-    }
-
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
     }
 
     public String getName() {

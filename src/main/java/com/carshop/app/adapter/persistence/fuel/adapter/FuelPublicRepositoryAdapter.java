@@ -1,5 +1,7 @@
-package com.carshop.app.adapter.persistence.fuel;
+package com.carshop.app.adapter.persistence.fuel.adapter;
 
+import com.carshop.app.adapter.persistence.fuel.repository.FuelRepository;
+import com.carshop.app.adapter.persistence.fuel.mapper.FuelJpaMapper;
 import com.carshop.app.application.port.persistence.fuel.FuelPublicRepositoryPort;
 import com.carshop.app.domain.Fuel;
 import com.carshop.app.infrastructure.annotation.Adapter;
@@ -19,6 +21,6 @@ public class FuelPublicRepositoryAdapter implements FuelPublicRepositoryPort {
 
     @Override
     public Collection<Fuel> findUniversal() {
-        return this.fuelRepository.findUniversal().stream().map(this.fuelJpaMapper::toJpaMapper).toList();
+        return this.fuelRepository.findUniversal().stream().map(this.fuelJpaMapper::toDomain).toList();
     }
 }

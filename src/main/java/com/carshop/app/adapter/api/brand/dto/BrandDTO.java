@@ -1,32 +1,32 @@
-package com.carshop.app.modules.brands.dtos;
+package com.carshop.app.adapter.api.brand.dto;
 
 import java.io.Serializable;
 
 public class BrandDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private Integer id;
+    private long id;
     private String name;
 
     public BrandDTO() {
 
     }
 
-    public BrandDTO(Integer id) {
+    public BrandDTO(long id) {
         this.id = id;
 
     }
 
-    public BrandDTO(Integer id, String name) {
+    public BrandDTO(long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 

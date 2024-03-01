@@ -5,7 +5,7 @@ import com.carshop.app.infrastructure.exception.CarShopRuleException;
 
 import java.util.Collection;
 
-public interface CategoryUseCase {
+public interface CategoryPublicUseCase {
 
     Collection<Category> findUniversal() throws CarShopRuleException;
 

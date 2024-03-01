@@ -1,4 +1,4 @@
-package com.carshop.app.adapter.persistence.color;
+package com.carshop.app.adapter.persistence.color.repository;
 
 import com.carshop.app.adapter.persistence.color.entity.ColorEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
